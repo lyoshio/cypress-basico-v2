@@ -68,9 +68,9 @@ describe("Central de Atendimento ao Cliente TAT", function () {
   it("Selecionar arquivo", function () {
     cy.get('input[type="file"]')
       .should("not.have.value")
-      .selectFile("./cypress/fixtures/imagem.jpg")
+      .selectFile("./cypress/fixtures/example.json")
       .should(function ($input) {
-        expect($input[0].files[0]).to.have.property("name", "imagem.jpg");
+        expect($input[0].files[0]).to.have.property("name", "example.json");
       });
   });
 
@@ -79,7 +79,7 @@ describe("Central de Atendimento ao Cliente TAT", function () {
       .should("not.have.value")
       .selectFile("./cypress/fixtures/example.json", { action: "drag-drop" })
       .should(function ($input) {
-        expect($input[0].files[0]).to.have.property("name", "imagem.jpg");
+        expect($input[0].files[0]).to.have.property("name", "example.json");
       });
   });
   it("selecionar fixture que foi dada um alias", function () {
@@ -87,7 +87,7 @@ describe("Central de Atendimento ao Cliente TAT", function () {
     cy.get('input[type="file"]')
       .selectFile("@exampleFile")
       .should(function ($input) {
-        expect($input[0].files[0]).to.have.property("name", "imagem.jpg");
+        expect($input[0].files[0]).to.have.property("name", "example.json");
       });
   });
   it("aplicacao q abre outra pagina", function () {
