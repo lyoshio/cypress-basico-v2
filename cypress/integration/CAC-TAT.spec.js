@@ -77,13 +77,13 @@ describe("Central de Atendimento ao Cliente TAT", function () {
   it("selecionar arquivo simulando drag-an-drop", function () {
     cy.get('input[type="file"]')
       .should("not.have.value")
-      .selectFile("./cypress/fixtures/imagem.jpg", { action: "drag-drop" })
+      .selectFile("./cypress/fixtures/example.json", { action: "drag-drop" })
       .should(function ($input) {
         expect($input[0].files[0]).to.have.property("name", "imagem.jpg");
       });
   });
   it("selecionar fixture que foi dada um alias", function () {
-    cy.fixture("imagem.jpg").as("exampleFile");
+    cy.fixture("example.json").as("exampleFile");
     cy.get('input[type="file"]')
       .selectFile("@exampleFile")
       .should(function ($input) {
